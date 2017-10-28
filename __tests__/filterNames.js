@@ -75,7 +75,6 @@ describe('Test name filtering', () => {
     expect(filterNames(names, 'Dan Hannigan').length).toEqual(0);
   });
   it('should return a single name', () => {
-    console.log(filterNames(names, 'EdwardSanchez'));
     expect(filterNames(names, 'EdwardSanchez').length).toEqual(1);
   });
   it('should return multiple names', () => {

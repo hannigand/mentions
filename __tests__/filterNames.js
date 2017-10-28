@@ -1,3 +1,5 @@
+import { filterNames } from '../app/utils';
+
 // Automatically generated from https://uinames.com/
 const names = [
   {
@@ -61,14 +63,6 @@ const names = [
     username: 'EmmaTurner',
   },
 ];
-
-const filterNames = (names, name) =>
-  names
-    .filter(({ username }) => username.startsWith(name))
-    .sort(sortByUsername);
-
-const sortByUsername = (a, b) =>
-  a.username > b.username ? 1 : a.username < b.username ? -1 : 0;
 
 describe('Test name filtering', () => {
   it('should return an empty collection of names', () => {

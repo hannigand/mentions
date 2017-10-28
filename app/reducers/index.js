@@ -1,3 +1,5 @@
+import { filterNames } from '../utils';
+
 const initialState = {
   allNames: [
     {
@@ -128,14 +130,6 @@ const initialState = {
   textareaValue: '',
 };
 
-const filterNames = (names, name) =>
-  names
-    .filter(({ username }) => username.startsWith(name))
-    .sort(sortByUsername);
-
-const sortByUsername = (a, b) =>
-  a.username > b.username ? 1 : a.username < b.username ? -1 : 0;
-
 const rootReducer = (state = initialState, action) => {
   const { payload } = action;
   switch (action.type) {
@@ -148,8 +142,8 @@ const rootReducer = (state = initialState, action) => {
         lastKey === '@' || (state.isRecordingMention && lastKey !== ' ');
       // Extract the name by getting every value after the @ sign
       const name = payload.substr(payload.lastIndexOf('@') + 1);
+      // Filter the names
       const filteredNames = filterNames(state.allNames, name);
-      console.log({ name });
       return {
         ...state,
         textareaValue: payload,
@@ -158,8 +152,12 @@ const rootReducer = (state = initialState, action) => {
         filteredNames: isMentioningUser ? filteredNames : state.allNames,
       };
     case 'ADD_MENTION':
+      // Get the Username from the action
       const username = payload;
+      // Obtain the current textarea value
       const currentValue = state.textareaValue;
+      // Remove everything typed in after @ sign and replace it with the
+      // Username from the action
       const newValue = currentValue.substr(
         0,
         currentValue.lastIndexOf('@') + 1,

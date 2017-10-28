@@ -8,6 +8,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const TextArea = ({}) => <TextInput style={styles.textarea} multiline />;
+const TextArea = ({ textareaValue, onChangeText }) => (
+  <TextInput
+    style={styles.textarea}
+    multiline
+    onChangeText={onChangeText}
+    value={textareaValue}
+  />
+);
 
 export default TextArea;

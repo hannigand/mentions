@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const Main = ({ allNames }) => (
+const Main = ({ allNames, recordKeyPress, textareaValue }) => (
   <View style={styles.container}>
-    <TextArea />
+    <TextArea value={textareaValue} onChangeText={recordKeyPress} />
     <MentionList names={allNames} />
   </View>
 );

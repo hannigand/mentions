@@ -61,10 +61,27 @@ const initialState = {
       username: 'EmmaTurner',
     },
   ],
+  isMentioningUser: false,
+  isRecordingMention: false,
+  textareaValue: '',
 };
 
 const rootReducer = (state = initialState, action) => {
+  const { payload } = action;
   switch (action.type) {
+    case 'RECORD_KEY_PRESS':
+      const lastKey = payload.substr(-1);
+      // If a User types @ then they are assumed to be mentioning someone
+      // As long as the next keys are not a space,
+      // we still assume they are mentioning
+      const isMentioningUser =
+        lastKey === '@' || (state.isRecordingMention && lastKey !== ' ');
+      return {
+        ...state,
+        textareaValue: payload,
+        isMentioningUser,
+        isRecordingMention: isMentioningUser,
+      };
     default:
       return state;
   }

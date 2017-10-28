@@ -139,7 +139,8 @@ const rootReducer = (state = initialState, action) => {
       // As long as the next keys are not a space,
       // we still assume they are mentioning
       const isMentioningUser =
-        lastKey === '@' || (state.isRecordingMention && lastKey !== ' ');
+        (lastKey === '@' || (state.isRecordingMention && lastKey !== ' ')) &&
+        payload.length;
       // Extract the name by getting every value after the @ sign
       const name = payload.substr(payload.lastIndexOf('@') + 1);
       // Filter the names

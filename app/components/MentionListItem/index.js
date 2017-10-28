@@ -1,9 +1,17 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
+const styles = StyleSheet.create({
+  listItem: {
+    borderWidth: 1,
+    borderColor: 'blue',
+    padding: 10,
+  },
+});
+
 const MentionListItem = ({ name, username, onSelect }) => (
-  <TouchableOpacity onPress={() => onSelect(username)}>
+  <TouchableOpacity onPress={() => onSelect(username)} style={styles.listItem}>
     <Text>{name}</Text>
   </TouchableOpacity>
 );

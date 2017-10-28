@@ -1,8 +1,17 @@
 import React from 'react';
-import { FlatList, Text } from 'react-native';
+import { FlatList, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 import MentionListItem from '../MentionListItem';
+
+const styles = StyleSheet.create({
+  list: {
+    width: 250,
+    height: 400,
+    borderWidth: 1,
+    borderColor: 'red',
+  },
+});
 
 const MentionList = ({ names, visible, onSelect }) => (
   <FlatList
@@ -11,9 +20,12 @@ const MentionList = ({ names, visible, onSelect }) => (
       <MentionListItem name={name} username={username} onSelect={onSelect} />
     )}
     keyExtractor={name => name.username}
-    style={{
-      display: visible ? 'flex' : 'none',
-    }}
+    style={[
+      styles.list,
+      {
+        display: visible ? 'flex' : 'none',
+      },
+    ]}
   />
 );
 

@@ -149,7 +149,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         textareaValue: payload,
         isRecordingMention: isMentioningUser,
-        isMentionListVisible: isMentioningUser,
+        isMentionListVisible: isMentioningUser && filteredNames.length,
         filteredNames: isMentioningUser ? filteredNames : state.allNames,
       };
     case 'ADD_MENTION':

@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
     height: 400,
     borderWidth: 1,
     borderColor: 'red',
+    position: 'absolute',
+    top: 25,
+    left: 25,
   },
 });
 

@@ -4,13 +4,16 @@ import PropTypes from 'prop-types';
 
 import MentionListItem from '../MentionListItem';
 
-const MentionList = ({ names }) => (
+const MentionList = ({ names, visible, onSelect }) => (
   <FlatList
     data={names}
     renderItem={({ item: { name, username } }) => (
-      <MentionListItem name={name} username={username} />
+      <MentionListItem name={name} username={username} onSelect={onSelect} />
     )}
     keyExtractor={name => name.username}
+    style={{
+      display: visible ? 'flex' : 'none',
+    }}
   />
 );
 

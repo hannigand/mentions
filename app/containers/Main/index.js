@@ -20,10 +20,20 @@ const styles = StyleSheet.create({
   },
 });
 
-const Main = ({ allNames, recordKeyPress, textareaValue }) => (
+const Main = ({
+  filteredNames: names,
+  recordKeyPress,
+  textareaValue,
+  isMentionListVisible,
+  addMention,
+}) => (
   <View style={styles.container}>
     <TextArea value={textareaValue} onChangeText={recordKeyPress} />
-    <MentionList names={allNames} />
+    <MentionList
+      names={names}
+      visible={isMentionListVisible}
+      onSelect={addMention}
+    />
   </View>
 );
 

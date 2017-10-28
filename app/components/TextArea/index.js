@@ -8,12 +8,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const TextArea = ({ textareaValue, onChangeText }) => (
+const TextArea = ({ value, onChangeText }) => (
   <TextInput
     style={styles.textarea}
     multiline
     onChangeText={onChangeText}
-    value={textareaValue}
+    value={value}
   />
 );
 

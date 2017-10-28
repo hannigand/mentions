@@ -5,3 +5,10 @@ export const recordKeyPress = key => {
     payload: key,
   };
 };
+
+export const addMention = username => {
+  return {
+    type: 'ADD_MENTION',
+    payload: username,
+  };
+};

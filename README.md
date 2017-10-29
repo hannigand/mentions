@@ -10,3 +10,4 @@ $ npm t
 
 #### Times
 Saturday 28th October - 14:15 to 17:15 (3 hours)
+Sunday 29th October - 09:45 to (X hours)

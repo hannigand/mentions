@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import { TextInput, StyleSheet } from 'react-native';
+import { TextInput, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    paddingBottom: 10,
+    paddingTop: 10,
+  },
   textarea: {
     flex: 1,
     borderWidth: 1,
@@ -20,16 +25,18 @@ class TextArea extends Component {
   render() {
     const { value, onChangeText } = this.props;
     return (
-      <TextInput
-        style={styles.textarea}
-        multiline
-        onChangeText={onChangeText}
-        value={value}
-        ref={textarea => (this.textarea = textarea)}
-        onSelectionChange={e => {
-          console.log(e.nativeEvent.selection);
-        }}
-      />
+      <KeyboardAvoidingView behavior="height" style={styles.wrapper}>
+        <TextInput
+          style={styles.textarea}
+          multiline
+          onChangeText={onChangeText}
+          value={value}
+          ref={textarea => (this.textarea = textarea)}
+          onSelectionChange={e => {
+            console.log(e.nativeEvent.selection);
+          }}
+        />
+      </KeyboardAvoidingView>
     );
   }
 }

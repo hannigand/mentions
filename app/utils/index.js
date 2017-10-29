@@ -1,9 +1,6 @@
 const filterNames = (names, name) =>
-  names
-    .filter(({ username }) => username.startsWith(name))
-    .sort(sortByUsername);
+  names.filter(({ username }) => username.startsWith(name)).sort(sortByName);
 
-const sortByUsername = (a, b) =>
-  a.username > b.username ? 1 : a.username < b.username ? -1 : 0;
+const sortByName = (a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0);
 
 export { filterNames };

@@ -4,11 +4,11 @@ const initialState = {
   allNames: [
     {
       name: 'Philip Lawson',
-      username: 'PhilLawson',
+      username: 'PhilipLawson',
     },
     {
       name: 'Peter Hunt',
-      username: 'PeteHunt',
+      username: 'PeterHunt',
     },
     {
       name: 'Lauren Freeman',
@@ -66,11 +66,11 @@ const initialState = {
   filteredNames: [
     {
       name: 'Philip Lawson',
-      username: 'PhilLawson',
+      username: 'PhilipLawson',
     },
     {
       name: 'Peter Hunt',
-      username: 'PeteHunt',
+      username: 'PeterHunt',
     },
     {
       name: 'Lauren Freeman',
@@ -128,6 +128,10 @@ const initialState = {
   isRecordingMention: false,
   isMentionListVisible: false,
   textareaValue: '',
+  position: {
+    x: 0,
+    y: 0,
+  },
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -165,7 +169,7 @@ const rootReducer = (state = initialState, action) => {
       );
       return {
         ...state,
-        textareaValue: `${newValue}${username} `,
+        textareaValue: `${newValue}${username}`,
         isRecordingMention: false,
         isMentionListVisible: false,
       };

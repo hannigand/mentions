@@ -11,3 +11,14 @@ export const addMention = username => {
     payload: username,
   };
 };
+
+export const changePosition = (selection, element) => {
+  console.log(selection, element);
+  return {
+    type: 'CHANGE_POSITION',
+    payload: {
+      ...selection,
+      ...element,
+    },
+  };
+};

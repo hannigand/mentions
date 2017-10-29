@@ -33,12 +33,6 @@ class TextArea extends Component {
           onChangeText={onChangeText}
           value={value}
           ref={textarea => (this.textarea = textarea)}
-          onSelectionChange={e => {
-            console.log(e.nativeEvent.selection);
-            this.textarea.measure((x, y, width, height, pageX, pageY) =>
-              console.log(x, y, width, height, pageX, pageY),
-            );
-          }}
         />
       </KeyboardAvoidingView>
     );

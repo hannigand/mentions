@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Keyboard } from 'react-native';
+import { ScrollView, Text, StyleSheet, Keyboard } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -15,8 +15,11 @@ const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 25,
     backgroundColor: '#ecf0f1',
+    borderWidth: 1,
+  },
+  contentContainer: {
+    flex: 1,
   },
 });
 
@@ -42,7 +45,11 @@ class Main extends Component {
       position,
     } = this.props;
     return (
-      <View style={styles.container}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.contentContainer}
+        keyboardShouldPersistTaps="always"
+      >
         <TextArea value={textareaValue} onChangeText={recordKeyPress} />
         <MentionList
           names={names}
@@ -50,7 +57,7 @@ class Main extends Component {
           onSelect={addMention}
           position={position}
         />
-      </View>
+      </ScrollView>
     );
   }
 }

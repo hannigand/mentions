@@ -144,7 +144,7 @@ const rootReducer = (state = initialState, action) => {
       // we still assume they are mentioning
       const isMentioningUser =
         (lastKey === '@' || (state.isRecordingMention && lastKey !== ' ')) &&
-        payload.length;
+        payload.length > 0;
       // Extract the name by getting every value after the @ sign
       const name = payload.substr(payload.lastIndexOf('@') + 1);
       // Filter the names
@@ -153,7 +153,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         textareaValue: payload,
         isRecordingMention: isMentioningUser,
-        isMentionListVisible: isMentioningUser && filteredNames.length,
+        isMentionListVisible: isMentioningUser && filteredNames.length > 0,
         filteredNames: isMentioningUser ? filteredNames : state.allNames,
       };
     case 'ADD_MENTION':

@@ -129,8 +129,8 @@ const initialState = {
   isMentionListVisible: false,
   textareaValue: '',
   position: {
-    x: 0,
-    y: 0,
+    xPos: 0,
+    yPos: 0,
   },
 };
 
@@ -172,6 +172,15 @@ const rootReducer = (state = initialState, action) => {
         textareaValue: `${newValue}${username}`,
         isRecordingMention: false,
         isMentionListVisible: false,
+      };
+    case 'CHANGE_POSITION':
+      const yPos = payload;
+      return {
+        ...state,
+        position: {
+          ...state.position,
+          yPos,
+        },
       };
     default:
       return state;

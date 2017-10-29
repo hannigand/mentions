@@ -12,13 +12,9 @@ export const addMention = username => {
   };
 };
 
-export const changePosition = (selection, element) => {
-  console.log(selection, element);
+export const changePosition = height => {
   return {
     type: 'CHANGE_POSITION',
-    payload: {
-      ...selection,
-      ...element,
-    },
+    payload: height,
   };
 };

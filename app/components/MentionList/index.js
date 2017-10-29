@@ -6,17 +6,20 @@ import MentionListItem from '../MentionListItem';
 
 const styles = StyleSheet.create({
   list: {
+    maxHeight: 300,
     width: 200,
-    height: 250,
     borderWidth: 1,
     borderColor: 'red',
     position: 'absolute',
-    top: 35,
-    left: 25,
   },
 });
 
-const MentionList = ({ names, visible, onSelect }) => (
+const MentionList = ({
+  names,
+  visible,
+  onSelect,
+  position: { xPos, yPos },
+}) => (
   <FlatList
     data={names}
     renderItem={({ item: { name, username } }) => (
@@ -27,6 +30,8 @@ const MentionList = ({ names, visible, onSelect }) => (
       styles.list,
       {
         display: visible ? 'flex' : 'none',
+        bottom: yPos,
+        right: xPos,
       },
     ]}
   />

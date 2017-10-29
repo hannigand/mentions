@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
   textarea: {
     flex: 1,
     borderWidth: 1,
+    fontSize: 16,
   },
 });
 
@@ -34,6 +35,9 @@ class TextArea extends Component {
           ref={textarea => (this.textarea = textarea)}
           onSelectionChange={e => {
             console.log(e.nativeEvent.selection);
+            this.textarea.measure((x, y, width, height, pageX, pageY) =>
+              console.log(x, y, width, height, pageX, pageY),
+            );
           }}
         />
       </KeyboardAvoidingView>

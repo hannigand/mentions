@@ -6,12 +6,12 @@ import MentionListItem from '../MentionListItem';
 
 const styles = StyleSheet.create({
   list: {
-    width: 250,
-    height: 400,
+    width: 200,
+    height: 250,
     borderWidth: 1,
     borderColor: 'red',
     position: 'absolute',
-    top: 25,
+    top: 35,
     left: 25,
   },
 });
